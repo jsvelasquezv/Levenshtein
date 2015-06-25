@@ -12,7 +12,7 @@ class Interfaz < Gtk::Window
       Gtk.main_quit
     end
     init_ui
-    set_default_size 500, 250
+    set_default_size(500, 250)
     set_window_position(:center)
     show_all
   end
@@ -101,27 +101,26 @@ class Interfaz < Gtk::Window
     table.set_column_spacings 4
 
     @table_dos.attach(@label, 0, 1, 0, 1,
-                     Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
-                     Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
-                     1, 1)
+                      Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
+                      Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
+                      1, 1)
     @table_dos.attach(label_tres, 1, 2, 0, 1,
-                     Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
-                     Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
-                     1, 1)
+                      Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
+                      Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
+                      1, 1)
     @table_dos.attach(@label_dos, 2, 3, 0, 1,
-                     Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
-                     Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
-                     1, 1)
+                      Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
+                      Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
+                      1, 1)
     @table_dos.attach(@label_cuatro, 0, 1, 2, 3,
-                     Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
-                     Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
-                     1, 1)
+                      Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
+                      Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
+                      1, 1)
     @table_dos.attach(@label_resultado, 0, 3, 4, 5,
                       Gtk::AttachOptions::FILL | Gtk::AttachOptions::EXPAND,
                       Gtk::AttachOptions::SHRINK | Gtk::AttachOptions::EXPAND,
                       1, 1)
     frame.add(@table_dos)
-
     add table
   end
 
@@ -129,16 +128,15 @@ class Interfaz < Gtk::Window
     resultado = transformar(u.text, v.text)
     tamano_u = u.text.length
     tamano_v = v.text.length
-    @label_cuatro.set_text 'Numero de operaciones: ' + resultado[tamano_u][tamano_v].to_s
-    string_resultado = ' ' 
+    @label_cuatro.set_text 'Numero de operaciones: ' +
+      resultado[tamano_u][tamano_v].to_s
+    string_resultado = ''
     (0..tamano_v).each do |j|
-        (0..tamano_u).each do |i|
-             string_resultado += '|' + resultado[i][j].to_s
-        end
-        string_resultado += '|
- '
+      (0..tamano_u).each do |i|
+        string_resultado += '|' + resultado[i][j].to_s
+      end
+      string_resultado += '|' + "\n"
     end
-   
     @label_resultado.set_text string_resultado
   end
 

@@ -25,5 +25,4 @@ module Transformar
     end
     tabla
   end
-  
 end
